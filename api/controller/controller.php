@@ -7,5 +7,8 @@ abstract class Controller{
         $this->dbconf=$dbconf;
         $this->logger=$logger;
     }
+    public function authorize(){
+        return true;
+    }
 }
 ?>
