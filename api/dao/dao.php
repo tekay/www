@@ -12,6 +12,7 @@ abstract class DAO{
         }
         catch (PDOException $e){
             $this->logger->critical($e->getMessage());
+						print_r($e->getMessage());
             die();
         }
     }
