@@ -14,5 +14,11 @@ class ContentController extends Controller{
 		$content=$dao->read($id);
 		return $content;
 	}
+
+	/**
+	* Posts new content
+	*
+	* @url POST /content
+	*/
 }
 ?>

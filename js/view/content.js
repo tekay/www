@@ -1,11 +1,11 @@
 window.ContentView = Backbone.View.extend({
-    initialize: function () {
-        this.render();
-    },
+	initialize: function () {
+		this.render();
+	},
 
-    render: function () {
-        $(this.el).html(this.template(this.model.toJSON()));
+	render: function () {
+		$(this.el).html(this.template(this.model.toJSON()));
 
-        return this;
-    }
+		return this;
+	}
 });
