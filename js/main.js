@@ -1,8 +1,9 @@
 var AppRouter = Backbone.Router.extend({
 
 	routes: {
-		""                  : "start",
-		"content/:id"       : "contentDetails"
+		"": "start",
+		"content/add": "contentAdd",
+		"content/:id": "contentDetails"
 	},
 
 	initialize: function () {
@@ -10,8 +11,8 @@ var AppRouter = Backbone.Router.extend({
 		$('.headtpl').html(this.headerView.el);
 	},
 
-	start:function(){
-		this.startView=new StartView();
+	start: function(){
+		this.startView = new StartView();
 	},
 
 	list: function(page) {
@@ -28,26 +29,17 @@ var AppRouter = Backbone.Router.extend({
 		content.fetch({success: function(){
 			$(".maintpl").html(new ContentView({model: content}).el);
 		}});
-		this.headerView.selectMenuItem();
 	},
 
-	addWine: function() {
-		var wine = new Wine();
-		$('#content').html(new WineView({model: wine}).el);
+	contentAdd: function() {
+		var content = new Content();
+		$('.maintpl').html(new ContentAddView({model: content}).el);
 		this.headerView.selectMenuItem('add-menu');
-	},
-
-	about: function () {
-		if (!this.aboutView) {
-			this.aboutView = new AboutView();
-		}
-		$('#content').html(this.aboutView.el);
-		this.headerView.selectMenuItem('about-menu');
 	}
 
 });
 
-utils.loadTemplate(['HeaderView', 'ContentView', 'ContentListView'], function() {
+utils.loadTemplate(['HeaderView', 'ContentView', 'ContentListView', 'ContentAddView'], function() {
 	app = new AppRouter();
 	Backbone.history.start();
 });

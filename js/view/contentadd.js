@@ -10,10 +10,7 @@ window.ContentAddView = Backbone.View.extend({
 	},
 
 	events: {
-		"change"        : "change",
-		"click .save"   : "beforeSave",
-		"click .delete" : "deleteWine",
-		"drop #picture" : "dropHandler"
+		"click .save"   : "beforeSave"
 	},
 
 	change: function (event) {

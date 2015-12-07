@@ -7,7 +7,7 @@ window.Content = Backbone.Model.extend({
 			return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a title"};
 		};
 		this.validators.content = function (value) {
-			return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a grape variety"};
+			return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a grape variety. lol kidding"};
 		};
 	},
 
@@ -31,10 +31,9 @@ window.Content = Backbone.Model.extend({
 
 	defaults: {
 		id: null,
-		cid: null,
 		uid: null,
 		gid: null,
-		ctype: "content",
+		ctid: null,
 		title: "",
 		subtitle: "",
 		content: "",
@@ -42,7 +41,8 @@ window.Content = Backbone.Model.extend({
 		active: 0,
 		categoryname: "",
 		username: "",
-		grpname: ""
+		grpname: "",
+		taglist: []
 	}
 });
 
